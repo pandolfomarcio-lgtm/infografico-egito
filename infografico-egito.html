@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico: A Arte do Antigo Egito</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF6E3; 
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 380px;
+            }
+        }
+        .text-shadow-custom {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .message-box {
+            background-color: #f0f0f0;
+            border-left: 4px solid #A0522D;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            font-style: italic;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #A0522D;
+            animation: spin 1s ease infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-8 md:my-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#4A4A4A] text-shadow-custom">A Arte do Antigo Egito</h1>
+            <p class="text-lg md:text-xl text-[#A0522D] mt-2">Uma viagem visual aos segredos dos faraós e sua busca pela eternidade.</p>
+        </header>
+
+        <main class="space-y-12">
+            
+            <section id="proposito" class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 text-center">
+                <h2 class="text-3xl font-bold text-[#4A4A4A] mb-4">Arte para a Eternidade</h2>
+                <button onclick="speakSection('proposito')" id="tts-proposito" class="mt-2 bg-[#4682B4] hover:bg-[#346a9a] text-white font-bold py-2 px-4 rounded-full shadow-md transition-all duration-300">
+                    Ouvir Seção ✨
+                </button>
+                <p class="max-w-3xl mx-auto text-base md:text-lg mb-6">A arte egípcia não era para decoração. Seu propósito era profundamente religioso e mágico, focada em garantir que a vida continuasse gloriosamente após a morte. Por isso, a grande maioria das obras que sobreviveram foi encontrada em túmulos e templos.</p>
+                <div class="bg-[#A0522D] text-white rounded-xl p-6 max-w-sm mx-auto shadow-inner">
+                    <p class="text-6xl md:text-7xl font-extrabold">~95%</p>
+                    <p class="text-lg font-semibold mt-2">Da arte egípcia conhecida tinha uma função funerária ou religiosa.</p>
+                </div>
+            </section>
+
+            <section id="regras" class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#4A4A4A] mb-6">As Regras Rígidas da Arte</h2>
+                <button onclick="speakSection('regras')" id="tts-regras" class="mt-2 bg-[#4682B4] hover:bg-[#346a9a] text-white font-bold py-2 px-4 rounded-full shadow-md transition-all duration-300">
+                    Ouvir Seção ✨
+                </button>
+                <p class="max-w-3xl mx-auto text-base md:text-lg mb-8 text-center">Para cumprir sua função sagrada, a arte seguia regras estritas, chamadas cânones. A criatividade individual era menos importante do que a tradição e o simbolismo correto.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0 text-center">
+                    <div class="p-4 rounded-lg bg-gray-100 w-48">
+                        <p class="text-2xl mb-2">📜</p>
+                        <h3 class="font-bold text-lg text-[#4A4A4A]">Padronizada</h3>
+                        <p class="text-sm">Seguia tradições rígidas.</p>
+                    </div>
+                    <div class="text-2xl font-bold text-[#A0522D] mx-4 hidden md:block">→</div>
+                    <div class="text-2xl font-bold text-[#A0522D] my-2 md:hidden">↓</div>
+                    <div class="p-4 rounded-lg bg-gray-100 w-48">
+                        <p class="text-2xl mb-2">👤</p>
+                        <h3 class="font-bold text-lg text-[#4A4A4A]">Anônima</h3>
+                        <p class="text-sm">O propósito era maior que o artista.</p>
+                    </div>
+                    <div class="text-2xl font-bold text-[#A0522D] mx-4 hidden md:block">→</div>
+                    <div class="text-2xl font-bold text-[#A0522D] my-2 md:hidden">↓</div>
+                    <div class="p-4 rounded-lg bg-gray-100 w-48">
+                        <p class="text-2xl mb-2">🎨</p>
+                        <h3 class="font-bold text-lg text-[#4A4A4A]">Simbólica</h3>
+                        <p class="text-sm">Cada detalhe tinha significado.</p>
+                    </div>
+                    <div class="text-2xl font-bold text-[#A0522D] mx-4 hidden md:block">→</div>
+                    <div class="text-2xl font-bold text-[#A0522D] my-2 md:hidden">↓</div>
+                    <div class="p-4 rounded-lg bg-gray-100 w-48">
+                        <p class="text-2xl mb-2">📏</p>
+                        <h3 class="font-bold text-lg text-[#4A4A4A]">Hierárquica</h3>
+                        <p class="text-sm">O tamanho indicava importância.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                <section id="pinturas" class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center text-[#4A4A4A] mb-4">Pinturas: Histórias nas Paredes</h2>
+                    <button onclick="speakSection('pinturas')" id="tts-pinturas" class="mt-2 bg-[#4682B4] hover:bg-[#346a9a] text-white font-bold py-2 px-4 rounded-full shadow-md transition-all duration-300">
+                        Ouvir Seção ✨
+                    </button>
+                    <p class="text-base md:text-lg mb-6 text-center">As pinturas eram como quadrinhos que narravam a vida e a jornada pós-morte, seguindo a famosa "Lei da Frontalidade" para máxima clareza, não realismo.</p>
+                    <div class="chart-container">
+                        <canvas id="coresChart"></canvas>
+                    </div>
+                    <p class="text-center mt-4 text-sm text-gray-600">Cada cor nas pinturas tinha um significado simbólico preciso, derivado de pigmentos naturais.</p>
+                </section>
+
+                <section id="esculturas" class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center text-[#4A4A4A] mb-4">Esculturas: Poder e Permanência</h2>
+                    <button onclick="speakSection('esculturas')" id="tts-esculturas" class="mt-2 bg-[#4682B4] hover:bg-[#346a9a] text-white font-bold py-2 px-4 rounded-full shadow-md transition-all duration-300">
+                        Ouvir Seção ✨
+                    </button>
+                    <p class="text-base md:text-lg mb-6 text-center">Feitas para durar para sempre, as esculturas de faraós e deuses transmitiam estabilidade e poder divino, sem emoção ou movimento.</p>
+                    <div class="chart-container">
+                        <canvas id="esculturasChart"></canvas>
+                    </div>
+                     <p class="text-center mt-4 text-sm text-gray-600">As características das esculturas reforçavam a ideia de uma presença eterna e imutável.</p>
+                </section>
+            </div>
+
+            <section id="arquitetura" class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#4A4A4A] mb-6">Arquitetura: Construções para o Infinito</h2>
+                <button onclick="speakSection('arquitetura')" id="tts-arquitetura" class="mt-2 bg-[#4682B4] hover:bg-[#346a9a] text-white font-bold py-2 px-4 rounded-full shadow-md transition-all duration-300">
+                    Ouvir Seção ✨
+                </button>
+                <p class="max-w-3xl mx-auto text-base md:text-lg mb-8 text-center">A arquitetura egípcia é sinônimo de grandiosidade. Usando pedras maciças e geometria imponente, eles construíram túmulos e templos para desafiar a eternidade.</p>
+                <div class="relative w-full max-w-4xl mx-auto p-4">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-[#A0522D]/50 rounded-full"></div>
+                    <div class="relative flex justify-between items-center w-full mb-12">
+                        <div class="w-2/5">
+                            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#FFD700]">
+                                <h3 class="font-bold text-lg">Pirâmides</h3>
+                                <p class="text-sm">Túmulos monumentais para faraós, como as de Gizé. Símbolos de ascensão divina.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-[#FFD700] rounded-full border-4 border-white shadow-md flex items-center justify-center font-bold">1</div>
+                        <div class="w-2/5"></div>
+                    </div>
+                     <div class="relative flex justify-between items-center w-full mb-12 flex-row-reverse">
+                        <div class="w-2/5">
+                            <div class="bg-white p-4 rounded-lg shadow-md border-r-4 border-[#4682B4]">
+                                <h3 class="font-bold text-lg">Templos</h3>
+                                <p class="text-sm">Enormes complexos como Karnak, com colunas gigantescas para adoração e poder.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4682B4] rounded-full border-4 border-white shadow-md flex items-center justify-center font-bold text-white">2</div>
+                        <div class="w-2/5"></div>
+                    </div>
+                     <div class="relative flex justify-between items-center w-full">
+                        <div class="w-2/5">
+                            <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#A0522D]">
+                                <h3 class="font-bold text-lg">Esfinges</h3>
+                                <p class="text-sm">Guardiãs míticas com corpo de leão e cabeça humana, protegendo locais sagrados.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-[#A0522D] rounded-full border-4 border-white shadow-md flex items-center justify-center font-bold text-white">3</div>
+                        <div class="w-2/5"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="gemini-ask" class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#4A4A4A] mb-4">Pergunte a um Sábio! ✨</h2>
+                <p class="text-base md:text-lg mb-6 text-center max-w-3xl mx-auto">Quer saber mais sobre a arte do Egito Antigo? Digite sua pergunta abaixo e um sábio responderá!</p>
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+                    <input id="ask-input" type="text" placeholder="Ex: Qual era o propósito da Lei da Frontalidade?" class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A0522D]"/>
+                    <button id="ask-button" class="bg-[#A0522D] hover:bg-[#8d4727] text-white font-bold py-3 px-6 rounded-full shadow-md transition-all duration-300">
+                        Perguntar
+                    </button>
+                </div>
+                <div id="response-container" class="mt-6 p-4 bg-gray-100 rounded-lg border border-gray-200 hidden">
+                    <div id="ask-loading" class="loading-spinner hidden"></div>
+                    <div id="ask-response" class="text-base text-gray-700 leading-relaxed"></div>
+                </div>
+            </section>
+
+            <section id="gemini-image" class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 text-center">
+                <h2 class="text-3xl font-bold text-center text-[#4A4A4A] mb-4">Gerador de Arte Egípcia ✨</h2>
+                <p class="text-base md:text-lg mb-6 max-w-3xl mx-auto">Clique no botão para gerar uma imagem aleatória de um artefato do Antigo Egito. Que tesouro você irá descobrir?</p>
+                <div class="flex flex-col items-center justify-center gap-4">
+                    <div id="image-loading-container" class="hidden">
+                        <div id="image-loading" class="loading-spinner"></div>
+                        <p class="mt-2 text-sm text-gray-500">Gerando sua obra de arte...</p>
+                    </div>
+                    <img id="generated-image" src="https://placehold.co/400x400/e9e9e9/5c5c5c?text=Sua+imagem+aparecerá+aqui" alt="Imagem gerada por IA de um artefato egípcio" class="w-full max-w-sm rounded-xl shadow-lg transition-all duration-500" />
+                    <button id="generate-button" class="mt-4 bg-[#FFD700] hover:bg-[#e0b500] text-[#4A4A4A] font-bold py-3 px-6 rounded-full shadow-md transition-all duration-300">
+                        Gerar Obra de Arte
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 py-6 border-t border-gray-300">
+            <p class="text-gray-600">Infográfico criado com Tailwind CSS, Chart.js e a API do Gemini.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth = 16) => {
+            if (label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const palette = {
+            sienna: '#A0522D',
+            gold: '#FFD700',
+            steelBlue: '#4682B4',
+            darkGray: '#4A4A4A',
+            green: '#2E8B57',
+            red: '#B22222',
+        };
+
+        const coresData = {
+            labels: ['Verde (Vida, Fertilidade)', 'Azul (Céu, Água, Criação)', 'Amarelo/Ouro (Sol, Divindade)', 'Vermelho (Poder, Perigo)', 'Preto (Regeneração, Nilo)'].map(l => wrapLabel(l)),
+            datasets: [{
+                label: 'Simbologia das Cores',
+                data: [25, 25, 20, 15, 15],
+                backgroundColor: [
+                    palette.green,
+                    palette.steelBlue,
+                    palette.gold,
+                    palette.red,
+                    palette.darkGray,
+                ],
+                borderColor: '#FDF6E3',
+                borderWidth: 4,
+                hoverOffset: 4
+            }]
+        };
+
+        const coresCtx = document.getElementById('coresChart').getContext('2d');
+        new Chart(coresCtx, {
+            type: 'doughnut',
+            data: coresData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 12
+                            },
+                            boxWidth: 20,
+                            padding: 20,
+                            generateLabels: function(chart) {
+                                const data = chart.data;
+                                if (data.labels.length && data.datasets.length) {
+                                    return data.labels.map(function(label, i) {
+                                        const meta = chart.getDatasetMeta(0);
+                                        const style = meta.controller.getStyle(i);
+                                        const fullLabel = Array.isArray(label) ? label.join(' ') : label;
+                                        return {
+                                            text: fullLabel,
+                                            fillStyle: style.backgroundColor,
+                                            strokeStyle: style.borderColor,
+                                            lineWidth: style.borderWidth,
+                                            hidden: isNaN(data.datasets[0].data[i]) || meta.data[i].hidden,
+                                            index: i
+                                        };
+                                    });
+                                }
+                                return [];
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        const esculturasData = {
+            labels: ['Frontal e Rígida', 'Estática (Sem Movimento)', 'Sem Expressão Facial', 'Poses Padronizadas'].map(l => wrapLabel(l)),
+            datasets: [{
+                label: 'Importância da Característica',
+                data: [95, 90, 85, 80],
+                backgroundColor: [palette.sienna, palette.steelBlue, palette.darkGray, palette.gold],
+                borderRadius: 6,
+                borderWidth: 0
+            }]
+        };
+
+        const esculturasCtx = document.getElementById('esculturasChart').getContext('2d');
+        new Chart(esculturasCtx, {
+            type: 'bar',
+            data: esculturasData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                           font: {
+                               size: 14,
+                               weight: 'bold'
+                           },
+                           color: palette.darkGray
+                        }
+                    }
+                }
+            }
+        });
+
+        const askButton = document.getElementById('ask-button');
+        const askInput = document.getElementById('ask-input');
+        const askResponseDiv = document.getElementById('ask-response');
+        const responseContainer = document.getElementById('response-container');
+        const askLoadingSpinner = document.getElementById('ask-loading');
+
+        let isAsking = false;
+
+        askButton.addEventListener('click', async () => {
+            if (isAsking) return;
+
+            const prompt = askInput.value.trim();
+            if (!prompt) {
+                askResponseDiv.textContent = 'Por favor, digite uma pergunta.';
+                responseContainer.classList.remove('hidden');
+                return;
+            }
+
+            isAsking = true;
+            askButton.textContent = 'Aguarde...';
+            askButton.disabled = true;
+            askLoadingSpinner.classList.remove('hidden');
+            responseContainer.classList.remove('hidden');
+            askResponseDiv.textContent = '';
+            
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: `Responda à seguinte pergunta sobre arte do Egito Antigo de forma concisa e educativa: ${prompt}` }] });
+                const payload = { contents: chatHistory };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    askResponseDiv.textContent = result.candidates[0].content.parts[0].text;
+                } else {
+                    askResponseDiv.textContent = 'Não foi possível obter uma resposta. Por favor, tente novamente mais tarde.';
+                }
+
+            } catch (error) {
+                console.error('Erro ao chamar a API do Gemini:', error);
+                askResponseDiv.textContent = 'Ocorreu um erro ao obter a resposta. Por favor, tente novamente.';
+            } finally {
+                isAsking = false;
+                askButton.textContent = 'Perguntar';
+                askButton.disabled = false;
+                askLoadingSpinner.classList.add('hidden');
+            }
+        });
+        
+        const generateButton = document.getElementById('generate-button');
+        const generatedImage = document.getElementById('generated-image');
+        const imageLoading = document.getElementById('image-loading-container');
+
+        let isGenerating = false;
+
+        generateButton.addEventListener('click', async () => {
+            if (isGenerating) return;
+
+            isGenerating = true;
+            generateButton.textContent = 'Gerando...';
+            generateButton.disabled = true;
+            generatedImage.style.opacity = '0.5';
+            imageLoading.classList.remove('hidden');
+            
+            try {
+                const prompt = "A high-quality, professional, realistic digital art of a specific ancient egyptian artifact like a scarab amulet, a pharaoh's bust, or a canopic jar. Focus on the object with a simple, dark background. The style should be realistic and detailed, with a focus on historical accuracy of the material, like gold, lapis lazuli, or limestone.";
+                const payload = { instances: { prompt: prompt }, parameters: { "sampleCount": 1} };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                
+                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                    const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
+                    generatedImage.src = imageUrl;
+                } else {
+                    generatedImage.src = 'https://placehold.co/400x400/e9e9e9/5c5c5c?text=Erro+ao+gerar+imagem';
+                }
+            } catch (error) {
+                console.error('Erro ao chamar a API de imagem:', error);
+                generatedImage.src = 'https://placehold.co/400x400/e9e9e9/5c5c5c?text=Erro+ao+gerar+imagem';
+            } finally {
+                isGenerating = false;
+                generateButton.textContent = 'Gerar Obra de Arte';
+                generateButton.disabled = false;
+                generatedImage.style.opacity = '1';
+                imageLoading.classList.add('hidden');
+            }
+        });
+
+        async function speakSection(elementId) {
+            const button = document.getElementById(`tts-${elementId}`);
+            if (button.disabled) return;
+
+            button.disabled = true;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<div class="loading-spinner w-5 h-5 border-2 border-white/50 border-t-white"></div>';
+
+            const section = document.getElementById(elementId);
+            const textToSpeak = Array.from(section.querySelectorAll('h2, p'))
+                .map(el => el.textContent)
+                .join('. ');
+
+            const payload = {
+                contents: [{
+                    parts: [{ text: textToSpeak }]
+                }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: { voiceName: "Rasalgethi" }
+                        }
+                    }
+                },
+                model: "gemini-2.5-flash-preview-tts"
+            };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                
+                const part = result?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType;
+
+                if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)[1], 10) || 16000;
+                    const pcmData = base64ToArrayBuffer(audioData);
+                    const pcm16 = new Int16Array(pcmData);
+                    const wavBlob = pcmToWav(pcm16, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+                    
+                    const audio = new Audio(audioUrl);
+                    audio.play();
+                    
+                    audio.onended = () => {
+                        button.disabled = false;
+                        button.innerHTML = originalText;
+                        URL.revokeObjectURL(audioUrl);
+                    };
+                } else {
+                    console.error('Estrutura de resposta de áudio inesperada:', result);
+                    button.disabled = false;
+                    button.innerHTML = originalText;
+                }
+            } catch (error) {
+                console.error('Erro ao gerar áudio:', error);
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }
+        }
+
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        function pcmToWav(pcm16, sampleRate) {
+            const pcmData = pcm16;
+            const numChannels = 1;
+            const sampleRateHz = sampleRate;
+            const bitsPerSample = 16;
+            const dataLength = pcmData.length * (bitsPerSample / 8);
+            const buffer = new ArrayBuffer(44 + dataLength);
+            const view = new DataView(buffer);
+            let offset = 0;
+
+            function writeString(str) {
+                for (let i = 0; i < str.length; i++) {
+                    view.setUint8(offset++, str.charCodeAt(i));
+                }
+            }
+
+            function writeUint32(value) {
+                view.setUint32(offset, value, true);
+                offset += 4;
+            }
+
+            function writeUint16(value) {
+                view.setUint16(offset, value, true);
+                offset += 2;
+            }
+
+            writeString('RIFF');
+            writeUint32(36 + dataLength);
+            writeString('WAVE');
+            writeString('fmt ');
+            writeUint32(16);
+            writeUint16(1);
+            writeUint16(numChannels);
+            writeUint32(sampleRateHz);
+            writeUint32(sampleRateHz * numChannels * (bitsPerSample / 8));
+            writeUint16(numChannels * (bitsPerSample / 8));
+            writeUint16(bitsPerSample);
+            writeString('data');
+            writeUint32(dataLength);
+
+            const pcmView = new DataView(pcmData.buffer);
+            for (let i = 0; i < pcmData.length; i++) {
+                view.setInt16(offset, pcmView.getInt16(i * 2, true), true);
+                offset += 2;
+            }
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+    </script>
+</body>
+</html>
